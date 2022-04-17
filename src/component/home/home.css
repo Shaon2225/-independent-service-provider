@@ -1,0 +1,59 @@
+.banner-img{
+    width: 100%;
+    height: 45rem;
+}
+
+.banner-info{
+    position: absolute;
+    top: 35%;
+}
+
+.banner-title{
+    margin-left: 10%;
+    font-size: 3rem;
+    font-weight: 800;
+    width: 75%;
+    line-height: 2.5rem;
+}
+
+.banner-text{
+    margin-left: 10%;
+    font-size: 1rem;
+    margin-top: 1rem;
+    width: 80%;
+    font-weight: 600;
+    color:#2d3f01;
+}
+
+.visit{
+    margin-left: 10%;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.visit:hover{
+    transform: scale(1.2);
+}
+
+.service-title{
+    text-align: center;
+    margin: 3rem 0;
+}
+
+
+
+.service-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    margin: 2rem auto;
+    gap: 2rem;
+}
+
+
+@media only screen and (max-width:660px) {
+    .service-container{
+        grid-template-columns: 1fr;
+    }
+}

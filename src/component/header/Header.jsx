@@ -6,7 +6,7 @@ import "./header.css";
 
 const Header = () => {
   return (
-    <Navbar expand="lg">
+    <Navbar sticky="top" bg="white" expand="lg">
       <Container>
         <Navbar.Brand href="#home">
             <Link to={'/'}><img className="" height={50} src="utility/img/logo.jpg"></img></Link>
