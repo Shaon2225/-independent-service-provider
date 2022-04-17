@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './component/home/Home';
 import Login from './component/authentication/Login';
 import Signup from './component/authentication/Signup';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
