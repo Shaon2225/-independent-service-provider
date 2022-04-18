@@ -10,8 +10,8 @@ const Banner = () => {
       </div>
       <div className='banner-info'>
         <div className='banner-title'>
-          <span>Take a Picture</span>
-          <span> Take the moment</span>
+          <span className='title-1'>Take a Picture</span>
+          <span className='title-1'> Take the moment</span>
         </div>
         <p className='banner-text'>A picture have a power to make you happy and bring you to the past memories. It can delait your mind refresh it and make you motivated</p>
         <h4 className='visit'>Take a look <BsArrowRight></BsArrowRight> </h4>

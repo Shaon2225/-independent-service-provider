@@ -6,17 +6,19 @@ import Home from './component/home/Home';
 import Login from './component/authentication/Login';
 import Signup from './component/authentication/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './component/footer/Footer';
 
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
