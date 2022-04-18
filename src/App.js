@@ -7,6 +7,8 @@ import Login from './component/authentication/Login';
 import Signup from './component/authentication/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './component/footer/Footer';
+import Blog from './component/blog/Blog';
+import AboutMe from './component/aboutMe/AboutMe';
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>
