@@ -1,5 +1,6 @@
 import React from 'react'
 import {BsArrowRight} from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 
 const Banner = () => {
@@ -14,7 +15,7 @@ const Banner = () => {
           <span className='title-1'> Take the moment</span>
         </div>
         <p className='banner-text'>A picture have a power to make you happy and bring you to the past memories. It can delait your mind refresh it and make you motivated</p>
-        <h4 className='visit'>Take a look <BsArrowRight></BsArrowRight> </h4>
+        <h4 className='visit'><Link to={'/gallary'} className="g-title">Take a look <BsArrowRight></BsArrowRight> </Link></h4>
       </div>
     </div>
   )

@@ -1,0 +1,34 @@
+.gallary-container{
+    margin: 1.5rem auto;
+    width: 80%;
+}
+
+.gallary-title{
+    color: #2d3f01;
+    font-size: 1.2rem;
+    padding: 1rem 0.8rem 0.1rem;
+    margin-left: 1rem;
+    border-bottom: 1px dotted #2d3f01;
+}
+
+.photo-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:0.8rem;
+    margin-left: 1rem;
+}
+
+.gallary-photo{
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0.8rem;
+}
+
+.shadow{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.shadow:hover{
+    transform: scale(2);
+    transition: transform 500ms ease-in-out;
+}
