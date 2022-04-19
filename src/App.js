@@ -10,6 +10,8 @@ import Footer from './component/footer/Footer';
 import Blog from './component/blog/Blog';
 import AboutMe from './component/aboutMe/AboutMe';
 import Gallary from './component/gallary/Gallary';
+import RequireAuth from './component/checkout/RequireAuth';
+import Checkout from './component/checkout/Checkout';
 
 
 function App() {
@@ -21,6 +23,11 @@ function App() {
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/gallary' element={<Gallary></Gallary>}></Route>
+        <Route path='/checkout' element={
+          <RequireAuth>
+            <Checkout></Checkout>
+          </RequireAuth>
+        }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
       </Routes>

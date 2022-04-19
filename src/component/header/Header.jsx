@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Signup from "../authentication/Signup";
 import "./header.css";
+import auth from "../../Firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+
   return (
     <Navbar sticky="top" bg="white" expand="lg">
       <Container fluid>
@@ -29,13 +35,15 @@ const Header = () => {
               </Link>
             </Nav.Link>
             <Nav.Link className="ms-5">
-              <Link className="text-decoration-none nav-link" to={"/login"}>
+              {
+                user?user.displayName.slice(0,10):<Link className="text-decoration-none nav-link" to={"/login"}>
                 Log in
               </Link>
+              }
             </Nav.Link>
             <Nav.Link className="ms-5" href="#action2">
               <Link className="text-decoration-none sign-up" to={"/signup"}>
-                Sign up
+                {user?<span onClick={()=>signOut(auth)}>Sign out</span> : 'Sign in'}
               </Link>
             </Nav.Link>
           </Nav>

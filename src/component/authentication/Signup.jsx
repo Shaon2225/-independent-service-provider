@@ -2,19 +2,33 @@ import React, { useRef } from 'react'
 import "./login.css";
 import {FcGoogle} from 'react-icons/fc'
 import {BsGithub} from 'react-icons/bs'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../Firebase.init';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Signup = () => {
   const emailRef = useRef();
   const passRef = useRef();
   const nameRef = useRef();
+  const navigate = useNavigate();
+
+  //firebase google
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+  
+
+  if(user){
+    navigate('/');
+  }
 
   const handleLogIn = (event) => {
     event.preventDefault();
+    const name = nameRef.current.value;
     const email = emailRef.current.value;
     const pass = passRef.current.value;
-    const name = nameRef.current.value;
   };
+
+
   return (
     <div className="login-container">
       <h2 className="login-title">Please Sign Up</h2>
@@ -43,7 +57,7 @@ const Signup = () => {
       </div>
       {/* <h2 className="login-title fs-5">Contiue with</h2> */}
       <div className="social-login">
-        <span><FcGoogle></FcGoogle></span>
+        <span onClick={()=>signInWithGoogle()}><FcGoogle></FcGoogle></span>
         <span><BsGithub></BsGithub></span>
 
       </div>

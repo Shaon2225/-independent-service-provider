@@ -29,7 +29,7 @@ const Gallary = () => {
         ))}
         </div>
       </div>
-      <div id="travel" className="gallary-container">
+      <div id="product" className="gallary-container">
           <h2 className="gallary-title">Product Photo</h2>
         <div className="photo-container">
         {product.map((x) => (
@@ -37,7 +37,7 @@ const Gallary = () => {
         ))}
         </div>
       </div>
-      <div id="travel" className="gallary-container">
+      <div id="wedding" className="gallary-container">
           <h2 className="gallary-title">Wedding</h2>
         <div className="photo-container">
         {wedding.map((x) => (
