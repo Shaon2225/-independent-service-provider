@@ -1,0 +1,13 @@
+.not-container{
+    margin: 2rem;
+    width: 100%;
+}
+
+.notfound{
+    /* margin: 2rem auto; */
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/0.8;
+}

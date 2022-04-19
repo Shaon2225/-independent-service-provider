@@ -36,15 +36,15 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link className="ms-5">
               {
-                user?user.displayName.slice(0,10):<Link className="text-decoration-none nav-link" to={"/login"}>
+                user?(user.displayName?user.displayName.split(' ')[0]:''):<Link className="text-decoration-none nav-link" to={"/login"}>
                 Log in
               </Link>
               }
             </Nav.Link>
-            <Nav.Link className="ms-5" href="#action2">
-              <Link className="text-decoration-none sign-up" to={"/signup"}>
-                {user?<span onClick={()=>signOut(auth)}>Sign out</span> : 'Sign in'}
-              </Link>
+            <Nav.Link className="ms-5">
+                {user?
+                <span onClick={()=>signOut(auth)} className='sign-up'>Sign out</span> : 
+                <Link className="text-decoration-none sign-up" to={"/signup"}>Sign in</Link>}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

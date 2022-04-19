@@ -4,7 +4,9 @@ import {FcGoogle} from 'react-icons/fc'
 import {BsGithub} from 'react-icons/bs'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { async } from '@firebase/util';
 
 const Signup = () => {
   const emailRef = useRef();
@@ -14,18 +16,39 @@ const Signup = () => {
 
   //firebase google
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-
+  const [
+    createUserWithEmailAndPassword,
+    user1,
+    loading1,
+    error1,
+  ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+  const [signInWithGithub, userGit, loadingGit, errorGit] = useSignInWithGithub(auth);
   
+  const [updateProfile, updating, error3] = useUpdateProfile(auth);
+  
+  let err = '';
+  
+  if(errorGit){
+    err = errorGit.message.split('/')[1].split(')')[0];
+  }
+  if(error1){
+    err = error1.message.split('/')[1].split(')')[0];
+  }
+  if(error){
+    err = error.message.split('/')[1].split(')')[0];
+  }
 
-  if(user){
+  if(user||user1||userGit){
     navigate('/');
   }
 
-  const handleLogIn = (event) => {
+  const handleLogIn = async (event) => {
     event.preventDefault();
-    const name = nameRef.current.value;
+    const displayName = nameRef.current.value;
     const email = emailRef.current.value;
     const pass = passRef.current.value;
+    await createUserWithEmailAndPassword(email,pass);
+    await updateProfile({displayName});
   };
 
 
@@ -45,6 +68,7 @@ const Signup = () => {
           <p>Password</p>
           <input type="password" ref={passRef} placeholder="Password" required/>
         </label>
+        <p className='text-danger'>{err?err:''}</p>
         <input type="submit" className="submit-btn" value="Sign Up" />
       </form>
       <div>
@@ -58,7 +82,7 @@ const Signup = () => {
       {/* <h2 className="login-title fs-5">Contiue with</h2> */}
       <div className="social-login">
         <span onClick={()=>signInWithGoogle()}><FcGoogle></FcGoogle></span>
-        <span><BsGithub></BsGithub></span>
+        <span onClick={()=>signInWithGithub()}><BsGithub></BsGithub></span>
 
       </div>
     </div>

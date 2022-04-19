@@ -12,6 +12,7 @@ import AboutMe from './component/aboutMe/AboutMe';
 import Gallary from './component/gallary/Gallary';
 import RequireAuth from './component/checkout/RequireAuth';
 import Checkout from './component/checkout/Checkout';
+import NotFound from './component/notfound/NotFound';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
