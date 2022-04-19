@@ -1,6 +1,8 @@
 # Photo vision website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site link https://photo-vision-1165e.web.app/
+
+alternative link https://photo-vision-1165e.firebaseapp.com/
 
 ## Used libaries
  - react bootstrap
@@ -10,3 +12,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
  - react firebase hooks
  - react firebase
  - react toast
+
